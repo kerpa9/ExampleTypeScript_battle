@@ -3,11 +3,14 @@ import { BattleServices } from "./battle.service";
 import { Character } from "./character";
 import { LoggerService } from "./logger.service";
 
-const character = new Character(1, "jobs", 23, 2);
+const loggerService = new LoggerService();
+const battle = new BattleServices(loggerService);
+
+const hero = new Character(1, "Shinta", 100, 25);
+const monster = new Character(2, "Golem", 160, 15);
 
 const logger = new LoggerService();
 
-const battle = new BattleServices(logger);
-
-console.log(character);
-console.log(battle);
+console.log("Iniciando la batalla");
+battle.battle(hero, monster);
+console.log(" Batalla terminada");
